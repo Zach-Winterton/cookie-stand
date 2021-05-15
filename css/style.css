@@ -1,11 +1,7 @@
 body{background-color:darksalmon}
 
-h1{color:black;
+h1{
+  font-size: 4em;
+  font-family: 'Texturina', serif;
+  color:black;
 background-color:cornflowerblue
- }
-p{
-  color:lightgoldenrodyellow
-}
-<img> : {
-
-}
