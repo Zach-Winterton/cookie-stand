@@ -5,3 +5,22 @@ h1{
   font-family: 'Texturina', serif;
   color:black;
 background-color:cornflowerblue
+}
+
+table {
+ border-spacing: 3em;
+ border: medium black
+ margin: 30px;
+ border-style: solid;
+}
+
+th, td {
+  border: 3em black;
+  border-radius: 3em;
+  padding: 4em;
+}
+
+th {
+  font-weight: bolder;
+  background-color: white;
+}
