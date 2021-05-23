@@ -58,13 +58,13 @@ a {
 
 table {
  border-spacing: 3em;
- border: medium black
  margin: 30px;
- border-style: solid;
+ border: 2px solid;
+ border-color: black;
 }
 
 th, td {
-  border: 3em black;
+  border: 2px solid black;
   border-radius: 3em;
   padding: 4em;
 }
@@ -72,4 +72,8 @@ th, td {
 th {
   font-weight: bolder;
   background-color: white;
+}
+
+form {
+  border-style: 2px solid black;
 }
