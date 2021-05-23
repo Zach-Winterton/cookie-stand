@@ -4,11 +4,12 @@
 
   const hours= ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
     //console.log (hours);
-  
 
     const cookieDataTable = document.getElementById('table');
     //console.log (cookieDataTable);
 
+let tfoot = document.createElement('tfoot')
+let allShop = [];
 
 
 function Shop(name, min, max, avg) {
@@ -18,6 +19,8 @@ function Shop(name, min, max, avg) {
   this.avg = avg;
   this.cookiesPurchasedPerHourArray = [];
   this.totalDailySales = 0;
+  allShop.push(this)
+  
   this.randomNumberCustomersPerHour = function () {
   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
   },
@@ -72,32 +75,49 @@ function cookieHeader() {
     cookieDataTable.appendChild(thead);
   }
 
-function Footer(){
-  let tfoot = document.createElement('tfoot');
+function footer(){
   let tr = document.createElement('tr');
-  tfoot.appendChild(tr);
-  let th = document.createElement('th');
-  tfoot.appendChild(th);
+  let td = document.createElement('td');
+  td.textContent='hourly Total'
+  tr.appendChild(td);
+
+  
+let grandTotal = 0;
+for (let i = 0; i < hours.length; i++){
+  let td = document.createElement('td');
+  let hourlyTotal = 0;
+  for (let j = 0; j < allShop.length; j++){
+    hourlyTotal += allShop[j].cookiesPurchasedPerHourArray[i];
   }
+  grandTotal += hourlyTotal
+  console.log(grandTotal)
+  td.textContent = hourlyTotal;
+  tr.appendChild(td);
+  
+  }
+let td1 = document.createElement('td');
+  td1.textContent = grandTotal;
+  tr.appendChild(td1);
+cookieDataTable.appendChild(tr);
+}
 
 
 
+  //tfoot.appendChild(tr);
 
 
 
 cookieHeader();
 
 
-  
-  new Shop('Seattle', 23, 65, 6.3);
- 
-  new Shop('Tokyo', 3, 24, 1.2);
-  
-  
-  new Shop('Dubai', 11, 38, 3.7);
-  
-  
-  new Shop('Paris', 20, 38, 2.3);
-  
-  
-  new Shop('Lima', 2, 16, 4.6);
+new Shop('Seattle', 23, 65, 6.3);
+
+new Shop('Tokyo', 3, 24, 1.2);
+
+new Shop('Dubai', 11, 38, 3.7);
+
+new Shop('Paris', 20, 38, 2.3);
+
+new Shop('Lima', 2, 16, 4.6);
+
+footer();
