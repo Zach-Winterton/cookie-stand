@@ -8,8 +8,13 @@
     const cookieDataTable = document.getElementById('table');
     //console.log (cookieDataTable);
 
-let tfoot = document.createElement('tfoot')
-let allShop = [];
+    const cookieForm = document.getElementById('form');
+
+    let newShop = [];
+
+    let tfoot = document.createElement('tfoot')
+
+    let allShop = [];
 
 
 function Shop(name, min, max, avg) {
@@ -78,7 +83,7 @@ function cookieHeader() {
 function footer(){
   let tr = document.createElement('tr');
   let td = document.createElement('td');
-  td.textContent='hourly Total'
+  td.textContent='Hourly Total'
   tr.appendChild(td);
 
   
@@ -101,11 +106,29 @@ let td1 = document.createElement('td');
 cookieDataTable.appendChild(tr);
 }
 
+//form section
 
+function handleSubmit(event) {
+  event.preventDefault();
 
-  //tfoot.appendChild(tr);
+  console.log(event.target.name.value);
+  console.log(event.target.min.value);
+  console.log(event.target.max.value);
+  console.log(event.target.avg.value);
 
+  let name = event.target.name.value;
 
+  let min = event.target.min.value;
+
+  let max = event.target.max.value;
+
+  let avg = event.target.avg.value;
+  
+  newShop.push([name, min, max, avg]);
+  
+  new Shop (name, min, max, avg);
+  footer();
+}
 
 cookieHeader();
 
@@ -121,3 +144,8 @@ new Shop('Paris', 20, 38, 2.3);
 new Shop('Lima', 2, 16, 4.6);
 
 footer();
+
+
+
+
+cookieForm.addEventListener('submit', handleSubmit);
