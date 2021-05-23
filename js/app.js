@@ -75,7 +75,7 @@ function cookieHeader() {
     cookieDataTable.appendChild(thead);
   }
 
-function Footer(){
+function footer(){
   let tr = document.createElement('tr');
   let td = document.createElement('td');
   td.textContent='hourly Total'
@@ -93,11 +93,12 @@ for (let i = 0; i < hours.length; i++){
   console.log(grandTotal)
   td.textContent = hourlyTotal;
   tr.appendChild(td);
-  cookieDataTable.appendChild(td);
+  
   }
 let td1 = document.createElement('td');
-  td.textContent = grandTotal;
-cookieDataTable.appendChild(td1);
+  td1.textContent = grandTotal;
+  tr.appendChild(td1);
+cookieDataTable.appendChild(tr);
 }
 
 
@@ -107,15 +108,16 @@ cookieDataTable.appendChild(td1);
 
 
 cookieHeader();
-Footer();
 
-  
-  new Shop('Seattle', 23, 65, 6.3);
- 
-  new Shop('Tokyo', 3, 24, 1.2);
-  
-  new Shop('Dubai', 11, 38, 3.7);
-  
-  new Shop('Paris', 20, 38, 2.3);
-  
-  new Shop('Lima', 2, 16, 4.6);
+
+new Shop('Seattle', 23, 65, 6.3);
+
+new Shop('Tokyo', 3, 24, 1.2);
+
+new Shop('Dubai', 11, 38, 3.7);
+
+new Shop('Paris', 20, 38, 2.3);
+
+new Shop('Lima', 2, 16, 4.6);
+
+footer();
