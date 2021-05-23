@@ -9,6 +9,27 @@
 <body>
   <main>
     <h1>Sales Record</h1>
+  <section>
+    <form id="form">
+      <fieldset>
+        <legend>Enter new data below to update data table</legend>
+
+          <label for="location">Location:</label>
+          <input type="text"required id="locationname"name="name">
+
+          <label for="min">Minimum cookies per hour:</label>
+          <input type="number"required id="mincookie"name="min">
+
+          <label for="max">Maximum cookies per hour:</label>
+          <input type="number"required id="maxcookie"name="max">
+
+          <label for="avg">Average cookie sold per hour:</label>
+          <input type="number"required id="avgcookie"name="avg">
+          
+          <button type="submit">Send</button>
+      </fieldset>
+    </form>
+  </section>
     
     
     <table id ="table">
@@ -22,7 +43,7 @@
   <a href="index.html"> back to the face!</a>
 </main>
 
-  <script src ="js/app.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 </html>
