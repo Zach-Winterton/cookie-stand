@@ -1,21 +1,13 @@
 'use strict';
 //console.log(hello-world)
 
-
   const hours= ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
     //console.log (hours);
-
-    const cookieDataTable = document.getElementById('table');
+  const cookieDataTable = document.getElementById('table');
     //console.log (cookieDataTable);
+  const cookieForm = document.getElementById('form');
 
-    const cookieForm = document.getElementById('form');
-
-    let newShop = [];
-
-    let tfoot = document.createElement('tfoot')
-
-    let allShop = [];
-
+  let allShop = [];
 
 function Shop(name, min, max, avg) {
   this.name = name;
@@ -88,22 +80,22 @@ function footer(){
 
   
 let grandTotal = 0;
-for (let i = 0; i < hours.length; i++){
+  for (let i = 0; i < hours.length; i++){
   let td = document.createElement('td');
   let hourlyTotal = 0;
   for (let j = 0; j < allShop.length; j++){
-    hourlyTotal += allShop[j].cookiesPurchasedPerHourArray[i];
+  hourlyTotal += allShop[j].cookiesPurchasedPerHourArray[i];
   }
   grandTotal += hourlyTotal
-  console.log(grandTotal)
   td.textContent = hourlyTotal;
   tr.appendChild(td);
+  //console.log(grandTotal)
   
   }
 let td1 = document.createElement('td');
   td1.textContent = grandTotal;
   tr.appendChild(td1);
-cookieDataTable.appendChild(tr);
+  cookieDataTable.appendChild(tr);
 }
 
 //form section
@@ -111,41 +103,24 @@ cookieDataTable.appendChild(tr);
 function handleSubmit(event) {
   event.preventDefault();
 
-  console.log(event.target.name.value);
-  console.log(event.target.min.value);
-  console.log(event.target.max.value);
-  console.log(event.target.avg.value);
-
   let name = event.target.name.value;
-
-  let min = event.target.min.value;
-
-  let max = event.target.max.value;
-
-  let avg = event.target.avg.value;
-  
-  newShop.push([name, min, max, avg]);
+  let min = parseInt(event.target.min.value);
+  let max = parseInt(event.target.max.value);
+  let avg = parseInt(event.target.avg.value);
   
   new Shop (name, min, max, avg);
   footer();
 }
 
+
 cookieHeader();
 
-
 new Shop('Seattle', 23, 65, 6.3);
-
 new Shop('Tokyo', 3, 24, 1.2);
-
 new Shop('Dubai', 11, 38, 3.7);
-
 new Shop('Paris', 20, 38, 2.3);
-
 new Shop('Lima', 2, 16, 4.6);
 
 footer();
-
-
-
 
 cookieForm.addEventListener('submit', handleSubmit);
